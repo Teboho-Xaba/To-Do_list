@@ -12,7 +12,6 @@ const addTask = () => {
         const taskItem = createTaskItem(taskText)
         list.appendChild(taskItem)
         input.value = ''
-        saveTask()
     }
 }
 
@@ -53,18 +52,7 @@ addTaskBtn.addEventListener('click', addTask)
 input.addEventListener('keydown', function(event){
     if(event === 'Enter'){
         addTask()
-        saveTask()
     }
 })
 
 list.addEventListener('change', toggleTask)
-
-function saveTask () {
-    localStorage.setItem("data", list.innerHTML)
-}
-
-function taskDisplay () {
-    list.innerHTML = localStorage.getItem("data")
-}
-
-taskDisplay()
